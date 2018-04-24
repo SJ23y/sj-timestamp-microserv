@@ -33,7 +33,13 @@ app.route('/_api/package.json')
       res.type('txt').send(data.toString());
     });
   });
-  
+
+
+app.route('/')
+  .get(function(req, res) {
+      res.sendFile(process.cwd() + '/views/index.html');
+       })
+
 app.route('/*')
     .get(function(req, res) {
       var str = decodeURIComponent(req.url.slice(1));
@@ -41,7 +47,7 @@ app.route('/*')
         var time = new Date(str*1000);
       } else {        
         var time = new Date(str);
-        if (instanceof time != 'Date') {
+        if (!(time.getTime())) {
         return res.json({ "unix": null, "natural": null });
         }
       }
