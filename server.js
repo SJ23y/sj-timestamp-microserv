@@ -36,9 +36,9 @@ app.route('/_api/package.json')
   
 app.route('/*')
     .get(function(req, res) {
-      var str = req.url.slice(1);
-      time = new Date(str);
-      res.end(time);
+      var str = new url(req.url);
+      var time = new Date(str);
+      res.end(str.origin);
 		  
       
     })
