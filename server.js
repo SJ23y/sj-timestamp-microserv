@@ -41,8 +41,8 @@ app.route('/*')
         var time = new Date(str*1000);
       } else {var time = new Date(str);}  
       var utime = time.getTime();
-      time = time.getMonth() + " " + time.getDate() + ", " + time.getFullYear();
-      res.json({ "unix": utime/1000, "natural": time });
+      var options = {month: 'long', day: 'numeric', year: 'numeric'}
+      res.json({ "unix": utime/1000, "natural": time.toLocaleString("en-US",options) });
 		  
       
     })
