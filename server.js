@@ -37,7 +37,8 @@ app.route('/_api/package.json')
 app.route('/*')
     .get(function(req, res) {
       var str = decodeURIComponent(req.url.slice(1));
-      var time = new Date(145013760000);
+      var time = new Date(str);
+      time = time.getTime();
       res.end(time.toString());
 		  
       
