@@ -39,7 +39,10 @@ app.route('/*')
       var str = decodeURIComponent(req.url.slice(1));
       if (typeof str == 'number' ) {
         var time = new Date(str*1000);
-      } else {var time = new Date(str);}  
+      } else {
+        try { var time = new Date(str); } 
+        catch(err) { return res.json({ "unix": null, "natural": null }); } }
+  
       var utime = time.getTime();
       var options = {month: 'long', day: 'numeric', year: 'numeric'}
       res.json({ "unix": utime/1000, "natural": time.toLocaleString("en-US",options) });
