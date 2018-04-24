@@ -37,12 +37,12 @@ app.route('/_api/package.json')
 app.route('/*')
     .get(function(req, res) {
       var str = decodeURIComponent(req.url.slice(1));
-      if (type of str == number ) {
+      if (typeof str == 'number' ) {
         var time = new Date(str*1000);
-      }
-      var time = new Date(str);
+      } else {var time = new Date(str);}  
       var utime = time.getTime();
-      res.end({ "unix": utime, "natural": time });
+      time = time.getMonth() + " " + time.getDate() + ", " + time.getFullYear();
+      res.json({ "unix": utime/1000, "natural": time });
 		  
       
     })
