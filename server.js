@@ -34,9 +34,11 @@ app.route('/_api/package.json')
     });
   });
   
-app.route('/')
+app.route('/*')
     .get(function(req, res) {
-      res.end("req");
+      var str = req.url.slice(1);
+      time = new Date(str);
+      res.end(time);
 		  
       
     })
