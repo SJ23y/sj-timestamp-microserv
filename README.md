@@ -1,1 +1,3 @@
-# Backend Challenges boilerplate - package.json
+This is **Timestamp Microservice**. 
+
+Part of Api Projects challenges on [FreeCodeCamp](https://www.freecodecamp.org)
